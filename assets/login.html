@@ -224,7 +224,7 @@
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
         minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
+        seconds = seconds < 10 ? "" + seconds : seconds;
         display.textContent = seconds;
         if (--timer < 0) {
           timer = duration;
@@ -258,8 +258,12 @@
             window.location = "../index.html";
           }
           setTimeout(function() {
-            window.location = "../index.html";
+          document.getElementById('loginForm').setAttribute("class", "visible");
+          document.querySelector('#wel').setAttribute("class", "hidden"); 
+          document.querySelector('#wel2').setAttribute("class", "hidden");
+          window.location = "../index.html";
           }, 6000);
+
           localStorage.setItem('username', username);
           localStorage.setItem('password', password);
         } else if (!username || !password) {
