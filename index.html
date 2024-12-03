@@ -380,8 +380,8 @@
       var evtobj = window.event ? window.event : e;
 
       if (evtobj.ctrlKey && evtobj.keyCode == 90) {
-        localStorage.clear();
-        alert('Please Wait');
+        localStorage.clear(); 
+        window.location = "./assets/login.html";
       }
 }
 
