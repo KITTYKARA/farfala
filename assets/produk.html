@@ -45,41 +45,9 @@
     <h2 class="st-wide"><strong>Printing</strong></h2> 
      
     <div class="st-row st-padding-32">
-      
-      <div onclick="window.location.replace('./Card Custom.html')" class="st-third st-button st-hover"  >
-        <img id="scream" width="220" height="277" src="../images/Card Custom.png">
-        <!-- <p id="product-list" style="margin-top: auto;">Card Custom</p>-->
-            
-       
-      </div>
-      <div class="st-third st-button st-hover st-animate-opacity" >
-        <img id="scream" width="220" height="277" src="../images/magazine.png">
-            
-          
-        
-      </div>
-      <div class="st-third st-button st-hover st-animate-opacity">
-        <img id="scream" width="220" height="277" src="../images/book.png">
-          
-          
-          
-      </div>
-      <div class="st-third st-button st-hover st-animate-opacity">
-        <img id="scream" width="220" height="277" src="../images/brosur.png">
-          
-           
-      </div>
-      <div class="st-third st-button st-hover st-animate-opacity">
-        <img id="scream" width="220" height="277" src="../images/frame.png">
-          
-           
-      </div>
-      <div class="st-third st-button st-hover st-animate-opacity">
-        <img id="scream" width="220" height="277" src="../images/pouch.png">
-          
-          
-         
-      </div>
+      <div id="list-product-printing"></div>
+ 
+     
     </div>
   </div>
   <!-- The Contact Section -->
@@ -168,30 +136,39 @@
   
 <!-- End Page Content -->
 </div>
-
  
- 
-
 <script>
- 
 
-// Used to toggle the menu on small screens when clicking on the menu button
-function myFunction() {
-  var x = document.getElementById("navDemo");
-  if (x.className.indexOf("st-show") == -1) {
-    x.className += " st-show";
-  } else { 
-    x.className = x.className.replace(" st-show", "");
-  }
-}
-  
-var opacity = 0; 
-        var intervalID = 0; 
-        window.onload = fadeIn; 
-          
-        function fadeIn() { 
-            setInterval(show, 200); 
-        } 
+productPrinting();
+ function productPrinting(){
+  // daftar produk 
+const produk = ["Card Custom", "magazine", "book", "brosur", "frame", "pouch"];
+ 
+ let i = 0;
+ let folder= "images" // lokasi folder gambar produk
+ while (produk[i]) { 
+     document.getElementById('list-product-printing').insertAdjacentHTML('beforeend', "<div  id='btn"+produk[i]+"'></div>");   
+     document.getElementById('btn'+produk[i]).setAttribute("onclick", "window.location.replace('"+produk[i]+".html')"); 
+     document.getElementById('btn'+produk[i]).setAttribute("class", "st-third st-button st-hover"); 
+     document.getElementById('btn'+produk[i]).insertAdjacentHTML('beforeend',  "<img id='img"+produk[i]+"'>");
+     document.getElementById('img'+produk[i]).setAttribute("src", "../" + folder + "/"+produk[i]+".png"); 
+     document.getElementById('img'+produk[i]).setAttribute("width", "220"); 
+     document.getElementById('img'+produk[i]).setAttribute("height", "277"); 
+     if(i == 6 ){   // jika produk lbh dari 6 looping dihentikan
+        break
+     } 
+     i++;
+ } }
+ 
+  var opacity = 0; 
+  var intervalID = 0; 
+  window.onload = fadeIn; 
+            
+  function fadeIn() { 
+     
+    setInterval(show, 50); 
+    
+  } 
           
         function show() { 
             var swb = document.getElementById("product"); 

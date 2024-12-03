@@ -8,7 +8,18 @@
     <link rel="stylesheet" href="./assets/style.css">
     
   </head>
-  <body>
+  <style> .visible {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 2s linear;
+    transition-delay: 1s;
+  }
+  .hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 1s, opacity 1s linear;
+}</style>
+  <body  class="visible">
     <!-- Navbar -->
     <div class="st-top ">
       <div class="st-bar st-white st-card st-round-large"  >
@@ -34,10 +45,11 @@
           </div>
         </div>
         <div class="mySlides st-display-container st-center">
-          <img src="./images/Group71.png" style="width:100%">
+          <img src="./images/Group71.png" style="width:100%;  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);">
           <div class="st-display-middle  st-display-left st-container st-text-white st-padding-32 st-hide-small" style="left: 10%;">
-            <h1 style=" font-size: 50px;">Farfalla Printing</h1>
-            <h1 style=" text-align: left; font-style: italic; font-size: 25px;">Expertise, Commitment, Value</h1>
+            <h1 style=" font-size: 50px; margin-left: 800px;">Farfalla Printing</h1>
+            <h1 style=" text-align: left; font-style: italic; font-size: 25px; margin-left: 800px;">Expertise, Commitment, Value</h1>
           </div>
         </div>
       </div>
@@ -330,14 +342,14 @@
           myIndex = 1
         }
         x[myIndex - 1].style.display = "block";
-        setTimeout(carousel, 1000);
+        setTimeout(carousel, 3000);
       }
       var opacity = 0;
       var intervalID = 0;
       window.onscroll = fadeIn;
 
       function fadeIn() {
-        setInterval(show, 200);
+        setInterval(show, 100);
       }
 
       function show() {
@@ -352,13 +364,28 @@
       }
 
       function cekLogin() {
-        if (localStorage.getItem('username') === null && localStorage.getItem('password') === null) {
+        
+        if (localStorage.getItem('username') === null || localStorage.getItem('password') === null ) {
+         
+         
           alert('Please login to view content');
           window.location = "./assets/login.html";
+ 
         } else {
           return true
         }
       }
+
+      function keyPressHandler(e) {
+      var evtobj = window.event ? window.event : e;
+
+      if (evtobj.ctrlKey && evtobj.keyCode == 90) {
+        localStorage.clear();
+        alert('Please Wait');
+      }
+}
+
+window.addEventListener('keydown', keyPressHandler);
     </script>
   </body>
 </html>

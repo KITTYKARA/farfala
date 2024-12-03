@@ -1,101 +1,276 @@
 <!DOCTYPE html>
 <html>
-    <style>body {
-        font-family: Arial, sans-serif;
-        
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      animation: fade-in 1s ease-in-out forwards;
+    }
+
+    .active {
+      margin-bottom: 150px;
+      display: inline-block;
+      -webkit-animation: fade-in 1s ease-in-out forwards;
+      animation: fade-in 1s ease-in-out forwards;
+    }
+
+    @-webkit-keyframes fade-in {
+      0% {
+        opacity: 0;
+        transform: scale(0);
       }
-      
-      form {
-        width: 300px;
-        margin: 0 auto;
-        margin-top: 150px;
+
+      85% {
+        opacity: 1;
+        transform: scale(1);
       }
-      h1 {
-        color: white;
+
+      90% {
+        opacity: 1;
+        transform: scale(1);
       }
-      label {
-        color: white;
+
+      95% {
+        opacity: 1;
+        transform: scale(1);
       }
-      input[type="text"], input[type="password"] {
-        width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        box-sizing: border-box;
-        border-radius: 20px;
+
+      100% {
+        opacity: 1;
+        transform: scale(1);
       }
-      
-      
-      input[type="button"] {
-        width: 25%;
-        background-color: #b9b9b9;
-        color: rgb(51, 51, 51);
-        padding: 14px 20px;
-        margin: 8px 0;
-        border: none;
-        cursor: pointer;
-        display: inline-block;
-        border-radius: 20px;
-        display: block;
-        margin-right: auto;
-        margin-left: auto;
-      }</style>
-<head>
+    }
+
+    @keyframes fade-in {
+      0% {
+        opacity: 0;
+        transform: scale(0);
+      }
+
+      85% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      90% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      95% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @-webkit-keyframes fade-in2 {
+      0% {
+        opacity: 0;
+        transform: scale(0);
+      }
+
+      85% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      90% {
+        opacity: 1;
+        transform: scale(1) rotate(3deg);
+      }
+
+      95% {
+        opacity: 1;
+        transform: scale(1) rotate(-5deg);
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+      }
+    }
+
+    @keyframes fade-in2 {
+      0% {
+        opacity: 0;
+        transform: scale(0);
+      }
+
+      85% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      90% {
+        opacity: 1;
+        transform: scale(1) rotate(3deg);
+      }
+
+      95% {
+        opacity: 1;
+        transform: scale(1) rotate(-5deg);
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+      }
+    }
+
+    #wel {
+      margin: 0 auto;
+      margin-top: -250px;
+    }
+
+    .visible {
+      visibility: visible;
+      opacity: 1;
+      transition: opacity 2s linear;
+      transition-delay: 1s;
+    }
+
+    .visibl {
+      visibility: visible;
+      opacity: 1;
+      transition: opacity 2s linear;
+      transition-delay: 1s;
+      animation: fade-in2 1s ease-in-out forwards;
+    }
+
+    .hidden {
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0s 1s, opacity 1s linear;
+    }
+
+    form {
+      width: 300px;
+      margin: 0 auto;
+      margin-top: 300px;
+    }
+
+    h1,
+    h2 {
+      color: white;
+    }
+
+    label {
+      color: white;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      border-radius: 20px;
+    }
+
+    input[type="button"] {
+      width: 25%;
+      background-color: #b9b9b9;
+      color: rgb(51, 51, 51);
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      display: inline-block;
+      border-radius: 20px;
+      display: block;
+      margin-right: auto;
+      margin-left: auto;
+    }
+  </style>
+  <head>
     <meta charset="UTF-8" />
     <title>Login </title>
-</head>
-<body style="background-image: url('../images/bg.png'); width: 100%;">
-    <form id="loginForm"     >
-        <H1>Log In</H1>
-        <label for="username">Username:</label><br>
-        <input type="text" id="username" name="username"  required> <br>
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password" required><br>
-        <input type="button" id="log"  style="background: url(../images/btn.png) ;  background-size: contain;
+  </head>
+  <body style="background-image: url('../images/bg.png'); width: 100%;">
+    <form id="loginForm">
+      <H1>Log In</H1>
+      <label for="username">Username:</label>
+      <br>
+      <input type="text" id="username" name="username" required>
+      <br>
+      <label for="password">Password:</label>
+      <br>
+      <input type="password" id="password" name="password" required>
+      <br>
+      <input type="button" id="log" style="background: url(../images/btn.png) ;  background-size: contain;
         background-repeat: no-repeat;
-        background-position-x: center;"  > </input>
-      </form>
-      
-</body>
-<script> 
-document.getElementById("log").addEventListener("click", function(event){
-  event.preventDefault()
-
-  const users = [
-  { username: "123", password: "123" },
-  { username: "user2", password: "password2" },
-  { username: "user3", password: "password3" },
-];
-
- 
-var username = document.querySelector('#username').value;
-var password = document.querySelector('#password').value;
- 
-  // Check if the entered credentials match any user in the array
-  const user = users.find((u) => u.username === username && u.password === password);
-  
-  if (user) {
-    loggedIn = true;
-    console.log("Login successful!");
-    window.location = "../index.html";  
-     
-    localStorage.setItem('username', username);
-    localStorage.setItem('password', password);
-     
-  } else if(!username || !password) {
-    alert("Enter Username and password to view content");
-    
-    document.querySelector('#username').focus();
-     
-  } else{
-    alert("Login failed. Please verify your username and password");
-    document.querySelector('#username').value = '';
-    document.querySelector('#password').value = '';
-
-  }
-    
-});
- 
-    </script>
+        background-position-x: center;"></input>
+    </form>
+    <!-- Div content -->
+    <div style="margin:0 auto;text-align:center">
+      <!-- Div align in the middle -->
+      <div style="margin-left:auto;margin-right:auto;text-align:center">
+        <h1 id="wel" class="hidden">Welcome</h1>
+        <h2 id="wel2" class="hidden">Will be directed in <span id="time">05</span> Seconds! </h2>
+      </div>
+    </div>
+  </body>
+  <script>
+    function startTimer(duration, display) {
+      var timer = duration,
+        minutes, seconds;
+      setInterval(function() {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+        display.textContent = seconds;
+        if (--timer < 0) {
+          timer = duration;
+        }
+      }, 1000);
+    }
+    document.getElementById("log").addEventListener("click", function(event) {
+      const users = [{
+        username: "aira",
+        password: "123"
+      }, {
+        username: "user2",
+        password: "password2"
+      }, {
+        username: "user3",
+        password: "password3"
+      }, ];
+      var username = document.querySelector('#username').value;
+      var password = document.querySelector('#password').value;
+      const find_user = users.find((u) => u.username === username && u.password === password);
+      for (let i = 0; i < users.length - 2; i++) {
+        if (find_user) {
+          document.getElementById('loginForm').setAttribute("class", "hidden");
+          document.querySelector('#wel').setAttribute("class", "visibl");
+          document.querySelector('#wel').textContent += " " + username + "";
+          document.querySelector('#wel2').setAttribute("class", "visible");
+          var fiveMinutes = 1 * 5,
+            display = document.querySelector('#time');
+          startTimer(fiveMinutes, display);
+          if (fiveMinutes == 0) {
+            window.location = "../index.html";
+          }
+          setTimeout(function() {
+            window.location = "../index.html";
+          }, 6000);
+          localStorage.setItem('username', username);
+          localStorage.setItem('password', password);
+        } else if (!username || !password) {
+          alert("Enter Username and password to view content");
+          document.querySelector('#username').focus();
+        } else {
+          alert("Login failed. Please verify your username and password");
+          document.querySelector('#username').value = '';
+          document.querySelector('#password').value = '';
+        }
+      }
+    }); 
+  </script>
 </html>
